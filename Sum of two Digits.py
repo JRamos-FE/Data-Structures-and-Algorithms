@@ -1,6 +1,6 @@
 import sys
 
-intput = sys.stdin.read()
+input = sys.stdin.read()
 tokens = input.split()
 
 x = int(tokens[0])
