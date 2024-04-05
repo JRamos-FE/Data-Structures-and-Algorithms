@@ -10,14 +10,18 @@ long long max_product_pair(vector<int> &nums){
     int maxIndex1 = -1;
     int maxIndex2 = -1;
 
-    for (int i, j =  0; i < n; ++i){
-        if ((maxIndex1 == -1) || (nums[i] > nums[maxIndex1]))
-            
+    for (int i =  0; i < n; ++i){
+        if ((maxIndex1 == -1) || (nums[i] > nums[maxIndex1])){
+            maxIndex2 = maxIndex1;
+            maxIndex1 = i;
+        }
+        else if ((maxIndex2 == -1 || nums[i] > nums[maxIndex2]) && i != maxIndex1){
+            maxIndex2 = i;
+        }
     }
-
-
-    return ((long long) (nums[maxIndex1] * nums[maxIndex2]));
+    return static_cast<long long>(nums[maxIndex1]) * static_cast<long long>(nums[maxIndex2]);
 }
+
 //Main function
 int main(){
     int n;
